@@ -2,18 +2,20 @@
 #include <ESP8266WiFi.h>
   
 //----------- Enter you Wi-Fi Details---------//
-char ssid[] = "D2"; //SSID
-char pass[] = "ramnayan"; // Password
+char ssid[] = " "; //Enter your SSID
+char pass[] = " "; // Enter your Password
 
 int trigPin = D5;    // D5 Trigger, trigPin is variable
 int echoPin = D6;    //D6  Echo, echoPin is also variable
-long duration, cm, inches;// these are 3 variables, 
+long duration, cm, inches;// these are 3 variables
+
 WiFiClient  client;
 //duration variable saves the time between the emssion and reception of the signal.
 //cm variable saves distance in centimeteres and inches saves distance in inch.
-unsigned long myChannelField = 1386981; // Channel ID
-const int ChannelField = 1; // Which channel to write data
-const char * myWriteAPIKey = "6WU75U6VOGYIL88A";
+unsigned long myChannelField = ; // ThingSpeak Channel ID
+const int ChannelField = ; // Enter which channel to write data
+const char * myWriteAPIKey = " "; //Enter the  write API key from the ThingSpeak channel
+
 void setup()
 {
   Serial.begin(115200);
@@ -23,7 +25,7 @@ void setup()
   //Serial Port begin
   WiFi.mode(WIFI_STA);
   ThingSpeak.begin(client);
-  //Serial.begin (115200);// initialize the serial port at baud rate of 9600.
+ 
 }
  
 void loop() {
@@ -61,7 +63,7 @@ void loop() {
 
   Serial.print("Time Duration: ");
   Serial.print(duration, 1);
-  Serial.println(" microsec");
+  Serial.println(" microsecond");
   Serial.println();
 
 Serial.print("Distance: ");
@@ -71,7 +73,7 @@ Serial.println();
 Serial.write(cm);
 
 
-/*Serial.print("Distance in inches: ");
+/*Serial.print("Distance in inches: ");// to get the distance in inches
 Serial.print(inches, 1);
 Serial.println(" inch");
 Serial.println();*/
@@ -79,10 +81,10 @@ if(cm>400  || cm<2) Serial.println("out of range \n");
 
 else
 {
-  Serial.print("Sensor works prefectly");
+  Serial.print("Sensor Works Perfectly");
   Serial.println('\n');
  /* Serial.print(duration);
-  Serial.print("Microsec");
+  Serial.print("Microsecond");
   Serial.println();
   Serial.print(inches);
   Serial.print("in, ");
