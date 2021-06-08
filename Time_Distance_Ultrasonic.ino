@@ -3,17 +3,18 @@
 
 int trigPin = D5;    // D5 Trigger, trigPin is variable
 int echoPin = D6;    //D6  Echo, echoPin is also variable
-long duration, cm, inches;// these are 3 variables, 
+long duration, cm, inches;// these are 3 variables for storing time and distance in cm and inches respectively.
 
 void setup()
-{
-  Serial.begin(115200);
+ {
+ Serial.begin(115200);
  //Define inputs and outputs
-  pinMode(trigPin, OUTPUT);// it sends high frequency sound pulses.
-  pinMode(echoPin, INPUT);// it receives the reflected sound pulese.
-}
+ pinMode(trigPin, OUTPUT);// it sends high frequency sound pulses.
+ pinMode(echoPin, INPUT);// it receives the reflected sound pulese.
+ }
  
-void loop() {
+void loop() 
+ {
   
   digitalWrite(trigPin, LOW);// clears the trigPin
   delayMicroseconds(2);
@@ -25,14 +26,14 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
 
  
-  // Convert the time into a distance
-  cm = duration* 0.034/2;     // Divide by 29.1 or multiply by 0.0343
+ // Convert the time into a distance
+ cm = duration* 0.034/2;     // Divide by 29.1 or multiply by 0.0343
  inches = duration*0.0135/2;   // Divide by 74 or multiply by 0.0135
 
-  Serial.print("Time Duration: ");
-  Serial.print(duration, 1);
-  Serial.println("microsecond");
-  Serial.println();
+Serial.print("Time Duration: ");
+Serial.print(duration, 1);
+Serial.println("microsecond");
+Serial.println();
 
 Serial.print("Distance: ");
 Serial.print(cm, 1);
